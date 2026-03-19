@@ -8,6 +8,19 @@ public class User {
         if (username == null || username.isBlank()) {
             throw new IllegalArgumentException("Username não pode ser vazio.");
         }
+
+        //Verifica se o email nao e nulo
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email não pode ser vazio.");
+        }
+
+        //Verifica se o email esta na forma correta texto@texto.extensao
+        //Caso não esteja, ele lança uma exceção 
+        String regex = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
+        if (!email.matches(regex)) {
+            throw new IllegalArgumentException("Email inválido. Deve ser na forma 'texto@texto.extensao");
+        }
+
         this.username = username;
         this.email = email;
     }
