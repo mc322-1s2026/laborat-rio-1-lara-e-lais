@@ -8,6 +8,9 @@ public class User {
         if (username == null || username.isBlank()) {
             throw new IllegalArgumentException("Username não pode ser vazio.");
         }
+        if (email == null || email.isBlank()) {
+            throw new IllegalArgumentException("Email não pode ser vazio.");
+        }
         this.username = username;
         this.email = email;
     }
